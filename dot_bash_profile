@@ -1,5 +1,4 @@
 # Add Visual Studio Code (code)
-export AIRTABLE_API_KEY="keyrpJflKBlJjiz47"
 export PATH="$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
 
 # >>> conda initialize >>>
