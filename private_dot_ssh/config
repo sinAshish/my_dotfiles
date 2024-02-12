@@ -1,0 +1,105 @@
+Host cedar
+  HostName cedar.computecanada.ca
+  User asinha
+  #ForwardX11 yes
+  #RemoteCommand tmux new -A -s foobar
+  #ForwardX11Trusted yes
+  #RequestTTY yes
+  #
+Host csil-cpu
+  HostName csil-cpu6.csil.sfu.ca
+  User asa409
+  ForwardX11 yes
+  #ProxyJump solar
+  Port 24
+
+Host narval
+  HostName narval.scinet.utoronto.ca
+  User asinha
+  ForwardX11 yes
+
+Host niagara
+  HostName niagara.scinet.utoronto.ca
+  User asinha
+  ForwardX11 yes
+
+Host mist
+  HostName mist.scinet.utoronto.ca
+  User asinha
+  ForwardX11 yes
+
+Host graham
+  HostName graham.computecanada.ca
+  User asinha
+  ForwardX11 yes
+
+Host hanen
+  HostName cedar.computecanada.ca
+  User hanenby
+  ForwardX11 yes
+
+  #Host cedar
+  #  HostName cedar.computecanada.ca
+  #  User asinha
+  #  ForwardX11 yes
+  #RemoteCommand tmux new -A -s foobar
+  #ForwardX11Trusted yes
+  #RequestTTY yes
+
+Host solar
+  HostName solar.cs.sfu.ca
+  ProxyJump cedar
+  User asa409
+  Port 24
+  ForwardX11 yes
+  ForwardX11Trusted yes
+  #RemoteCommand bash
+  RequestTTY yes
+
+Host ts11
+  HostName cs-mial-ts11.cmpt.sfu.ca
+  User asa409
+  Port 48555
+
+Host mial41
+  HostName cs-mial-41.cmpt.sfu.ca
+  User asa409
+  ForwardX11 yes
+
+Host mial35
+  HostName cs-mial-35.cmpt.sfu.ca
+  User asa409
+  ProxyJump solar
+  ForwardX11 yes
+  ForwardX11Trusted yes
+
+Host mial37
+  HostName cs-mial-37.cmpt.sfu.ca
+  User asa409
+  ProxyJump solar
+  ForwardX11 yes
+  ForwardX11Trusted yes
+
+# Jump servers to lab from HOME
+Host lab41
+  HostName cs-mial-41.cmpt.sfu.ca
+  ProxyJump solar
+  #ProxyJump solar
+  User asa409
+  ForwardX11 yes
+  #RequestTTY yes
+
+Host lab35
+  HostName cs-mial-35.cmpt.sfu.ca
+  ProxyJump solar
+  #ProxyJump solar
+  User asa409
+  ForwardX11 yes
+
+Host labts11
+  HostName cs-mial-ts11.cmpt.sfu.ca
+  ProxyJump solar
+  User asa409
+  ForwardX11 yes
+
+
