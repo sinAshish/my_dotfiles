@@ -1,0 +1,2 @@
+/Users/ashish/miniconda
+/Users/ashish/miniconda/envs/jax

@@ -1,16 +1,20 @@
 Host cedar
   HostName cedar.computecanada.ca
   User asinha
+  ControlPath ~/.ssh/cm-%r@%h:%p
+  ControlMaster auto
+  ControlPersist 20m
   #ForwardX11 yes
   #RemoteCommand tmux new -A -s foobar
   #ForwardX11Trusted yes
   #RequestTTY yes
   #
 Host csil-cpu
-  HostName csil-cpu6.csil.sfu.ca
+  HostName csil-cpu08.csil.sfu.ca
+  # HostName csil-cpu6.csil.sfu.caV
   User asa409
   ForwardX11 yes
-  #ProxyJump solar
+  ProxyJump solar
   Port 24
 
 Host narval
@@ -70,6 +74,12 @@ Host mial35
   HostName cs-mial-35.cmpt.sfu.ca
   User asa409
   ProxyJump solar
+  ForwardX11 yes
+  ForwardX11Trusted yes
+
+Host lab37
+  HostName cs-mial-37.cmpt.sfu.ca
+  User asa409
   ForwardX11 yes
   ForwardX11Trusted yes
 
