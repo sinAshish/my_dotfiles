@@ -1,0 +1,32 @@
+# vim:et sts=2 sw=2 ft=zsh
+#
+# Creates archive files
+#
+builtin emulate -L zsh
+
+if (( # < 2 )); then
+  print -u2 "usage: ${0} <archive_name.ext> <file>..."
+  return 2
+fi
+
+# we are quitting (above) if there are less than 2 vars,
+# so we don't need any argc check here.
+
+case ${1} in
+  (*.7z) 7za a "${@}" ;;
+  (*.rar) rar a "${@}" ;;
+  (*.tar.bz|*.tar.bz2|*.tbz|*.tbz2) tar --use-compress-program=${${(k)commands[pbzip2]}:-bzip2} -cvf "${@}" ;;
+  (*.tar.gz|*.tgz) tar --use-compress-program=${${(k)commands[pigz]}:-gzip} -cvf "${@}" ;;
+  (*.tar.lzma|*.tlz) tar --lzma --help &>/dev/null && XZ_OPT=-T0 tar --lzma -cvf "${@}" ;;
+  (*.tar.xz|*.txz) tar -J --help &>/dev/null && XZ_OPT=-T0 tar -cvJf "${@}" ;;
+  (*.tar.zst|*.tzst) XZ_OPT=-T0 tar --use-compress-program=zstd -cvf "${@}" ;;
+  (*.tar) tar -cvf "${@}" ;;
+  (*.zip) zip -r "${@}" ;;
+  (*.bz|*.bz2) print -u2 "${0}: .bzip2 is only useful for single files, and does not capture permissions. Use .tar.bz2" ;;
+  (*.gz) print -u2 "${0}: .gz is only useful for single files, and does not capture permissions. Use .tar.gz" ;;
+  (*.lzma) print -u2 "${0}: .lzma is only useful for single files, and does not capture permissions. Use .tar.lzma" ;;
+  (*.xz) print -u2 "${0}: .xz is only useful for single files, and does not capture permissions. Use .tar.xz" ;;
+  (*.zst) print -u2 "${0}: .zst is only useful for single files, and does not capture permissions. Use .tar.zst" ;;
+  (*.Z) print -u2 "${0}: .Z is only useful for single files, and does not capture permissions." ;;
+  (*) print -u2 "${0}: unknown archive type: ${1}" ;;
+esac

@@ -1,0 +1,19 @@
+zimfw() { source /localhome/asa409/.zim/zimfw.zsh "${@}" }
+zmodule() { source /localhome/asa409/.zim/zimfw.zsh "${@}" }
+fpath=(/localhome/asa409/.zim/modules/git/functions /localhome/asa409/.zim/modules/utility/functions /localhome/asa409/.zim/modules/duration-info/functions /localhome/asa409/.zim/modules/git-info/functions /localhome/asa409/.zim/modules/zsh-completions/src /localhome/asa409/.zim/modules/archive/functions /localhome/asa409/.zim/modules/pvenv/functions /localhome/asa409/.zim/modules/zim-chezmoi/functions ${fpath})
+autoload -Uz -- git-alias-lookup git-branch-current git-branch-delete-interactive git-branch-remote-tracking git-dir git-ignore-add git-root git-stash-clear-interactive git-stash-recover git-submodule-move git-submodule-remove mkcd mkpw duration-info-precmd duration-info-preexec coalesce git-action git-info archive lsarchive unarchive pvenv
+source /localhome/asa409/.zim/modules/environment/init.zsh
+source /localhome/asa409/.zim/modules/git/init.zsh
+source /localhome/asa409/.zim/modules/input/init.zsh
+source /localhome/asa409/.zim/modules/termtitle/init.zsh
+source /localhome/asa409/.zim/modules/utility/init.zsh
+source /localhome/asa409/.zim/modules/duration-info/init.zsh
+source /localhome/asa409/.zim/modules/asciiship/asciiship.zsh-theme
+source /localhome/asa409/.zim/modules/completion/init.zsh
+source /localhome/asa409/.zim/modules/archive/init.zsh
+source /localhome/asa409/.zim/modules/fzf/init.zsh
+source /localhome/asa409/.zim/modules/ssh/init.zsh
+source /localhome/asa409/.zim/modules/zim-chezmoi/init.zsh
+source /localhome/asa409/.zim/modules/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source /localhome/asa409/.zim/modules/zsh-history-substring-search/zsh-history-substring-search.zsh
+source /localhome/asa409/.zim/modules/zsh-autosuggestions/zsh-autosuggestions.zsh

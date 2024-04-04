@@ -1,10 +1,30 @@
+<<<<<<< HEAD
 # This is Git's per-user configuration file.
 [user]
 # Please adapt and uncomment the following lines:
 	name = Ashish Sinha
 	email = ashishsinha108@gmail.com #ashish@Ashishs-MacBook-Pro.local
+=======
+## This is Git's per-user configuration file.
+[user]
+# Please adapt and uncomment the following lines:
+	name = Ashish Sinha
+	email = ashishsinha108@gmail.com
+>>>>>>> commit from mial35
 [filter "lfs"]
 	required = true
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
 	process = git-lfs filter-process
+<<<<<<< HEAD
+=======
+[core]
+	editor = vim
+[merge]
+	tool = kdiff3
+[github]
+	user = sinashish
+	token = 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
+[credential]
+	helper = store
+>>>>>>> commit from mial35

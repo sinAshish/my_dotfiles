@@ -1,0 +1,9 @@
+channels:
+  - conda-forge
+  - defaults
+  - nvidia
+  - pytorch
+  - pytorch3d
+add_pip_as_python_dependency: true
+use_pip: true
+channel_priority: disabled
