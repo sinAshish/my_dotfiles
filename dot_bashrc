@@ -1,27 +1,12 @@
- ~/.bashrc: executed by bash(1) for non-login shells.
-export DOCKER_HOST=unix:///run/user/650216/docker.sock
-export PATH=/usr/bin:$PATH
+# ~/.bashrc: executed by bash(1) for non-login shells.
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
 # for examples
-#alias blender='/local-scratch/localhome/asa409/Downloads/blender-3.6.0-linux-x64/blender'
-#function blender-python() {
-#    if [ "$1" == "-q" ] || [ "$1" == "--quiet" ] ; then
-#        blender --background --python "$2" 1> /dev/null
-#    else
-#        blender --background --python "$1"
-#    fi
-#}
-alias vim=nvim
-alias vi=nvim
-alias open=xdg-open
-alias rsync='rsync -ahz --progress'
 
 # If not running interactively, don't do anything
 case $- in
     *i*) ;;
       *) return;;
 esac
-export TERM=xterm-256color
 
 # don't put duplicate lines or lines starting with space in the history.
 # See bash(1) for more options
@@ -31,12 +16,12 @@ HISTCONTROL=ignoreboth
 shopt -s histappend
 
 # for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
-HISTSIZE=10000
-HISTFILESIZE=20000
+HISTSIZE=1000
+HISTFILESIZE=2000
 
 # check the window size after each command and, if necessary,
 # update the values of LINES and COLUMNS.
-# shopt -s checkwinsize
+shopt -s checkwinsize
 
 # If set, the pattern "**" used in a pathname expansion context will
 # match all files and zero or more directories and subdirectories.
@@ -91,8 +76,8 @@ esac
 if [ -x /usr/bin/dircolors ]; then
     test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
     alias ls='ls --color=auto'
-    #alias dir='dir --color=auto'
-    #alias vdir='vdir --color=auto'
+    alias dir='dir --color=auto'
+    alias vdir='vdir --color=auto'
 
     alias grep='grep --color=auto'
     alias fgrep='fgrep --color=auto'
@@ -100,20 +85,21 @@ if [ -x /usr/bin/dircolors ]; then
 fi
 
 # colored GCC warnings and errors
-#export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
+export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
 
 # some more ls aliases
-alias ll='ls -alFkh'
-alias la='ls -Akh'
-alias l='ls -CFkh'
-
 alias ll='ls -alF'
-alias lll='ls -ahlF'
 alias la='ls -A'
 alias l='ls -CF'
-alias c='clear'
-alias cc='clear; clear'
-alias lt='ls -lt -kh'
+alias rsync='rsync -ahz --progress2'
+alias du='du -kh'
+alias df='df -kh'
+alias vim='nvim'
+alias vi='nvim'
+alias htop='btm'
+alias top='btm'
+alias btm='btm --enable_gpu_memory'
+
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
@@ -137,29 +123,22 @@ if ! shopt -oq posix; then
     . /etc/bash_completion
   fi
 fi
-
-
-export GOPATH=${HOME}/go
-export PATH=/usr/local/go/bin:${PATH}:${GOPATH}/bin
-export CUDA_VISIBLE_DEVICES=0
-# export SLURM_NODEID=0
-# export SLURM_NNODES=1
-# export SLURM_GPUS_ON_NODE=1
-# export SLURM_NTASKS=1
-# export SLURM_JOBID=29501
-# export SLURM_LAUNCH_NODE_IPADDR=127.0.0.1
-# export SLURM_TMPDIR=/tmp
-# export SLURM_NODELIST=localhost
-# export SLURM_LOCALID=0
-
-export EDITOR="nvim"
-export TERMINAL='kitty'
-export BROWSER='brave'
-exec zsh
-#source ~/.zshrc
+export PATH="$PATH:/opt/nvim-linux64/bin"
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/home/sinashish/miniconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/home/sinashish/miniconda3/etc/profile.d/conda.sh" ]; then
+        . "/home/sinashish/miniconda3/etc/profile.d/conda.sh"
+    else
+        export PATH="/home/sinashish/miniconda3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
 
-export PATH=/usr/local/cuda-11.3/bin:$PATH
-export LD_LIBRARY_PATH=/usr/local/cuda-11.3/lib64:$LD_LIBRARY_PATH

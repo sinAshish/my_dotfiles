@@ -23,6 +23,12 @@ zmodule utility
 # Prompt
 #
 
+zmodule archive 
+zmodule fzf
+zmodule ssh 
+zmodule prompt-pwd
+zmodule pvenv
+zmodule magic-enter
 # Exposes to prompts how long the last command took to execute, used by asciiship.
 zmodule duration-info
 # Exposes git repository status information to prompts, used by asciiship.
@@ -39,23 +45,10 @@ zmodule zsh-users/zsh-completions --fpath src
 # Enables and configures smart and extensive tab completion.
 # completion must be sourced after all modules that add completion definitions.
 zmodule completion
-zmodule zsh-users/zsh-syntax-highlighting
-zmodule zsh-users/zsh-autosuggestions
+
 #
 # Modules that must be initialized last
 #
-
-
-zmodule archive 
-zmodule fzf
-zmodule ssh 
-zmodule prompt-pwd
-zmodule pvenv
-zmodule magic-enter
-
-
-# mangage dotfiles
-zmodule joke/zim-chezmoi
 
 # Fish-like syntax highlighting for Zsh.
 # zsh-users/zsh-syntax-highlighting must be sourced after completion
@@ -66,4 +59,5 @@ zmodule zsh-users/zsh-history-substring-search
 # Fish-like autosuggestions for Zsh.
 zmodule zsh-users/zsh-autosuggestions
 # }}} End configuration added by Zim install
-
+# mangage dotfiles
+zmodule joke/zim-chezmoi
