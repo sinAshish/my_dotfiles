@@ -34,7 +34,7 @@ Plug 'nvim-lualine/lualine.nvim'
 Plug 'nvim-tree/nvim-web-devicons'
 Plug 'adelarsq/vim-devicons-emoji'
 Plug 'aserowy/tmux.nvim'
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
+" Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'vim-airline/vim-airline'
 " surround plugin
 Plug 'tpope/vim-surround'
@@ -46,7 +46,7 @@ Plug 'vim-scripts/Align'
 Plug 'scrooloose/syntastic'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'ap/vim-buftabline'
-Plug 'junegunn/fzf', {'do': { -> fzf#isntall() } }
+Plug 'junegunn/fzf', {'do': { -> fzf#install() } }
 Plug 'ryanoasis/vim-devicons'
 " latex plugin 
 Plug 'lervag/vimtex'
